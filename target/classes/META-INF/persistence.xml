@@ -1,0 +1,49 @@
+<persistence
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+        version="2.1">
+
+    <persistence-unit name="mysql">
+        <description>Database config file for JPA Hibernate Context.</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>be.intecbrussel.model.UserEntity</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/school_db" />
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.password" value="javaM@rs22" />
+            <!-- Drukt alle SQL transacties uit scherm/console. -->
+            <property name="hibernate.show_sql" value="true" />
+            <!--    Create-drop: Opnieuw database aanmaken.
+                                Na de app is gestopt, wordt de DB verwijdert.
+                    Create: Maakt een opnieuw database aan als er geen.
+                                Maar als er een database met hetzelfde naam dan is de database overgeschreven
+                    Update: Als er een database is, dan wordt de database geupdate.
+                                Als er geen database is, dan wordt een nieuwe database aangemaakt.
+                    Validate: Als er een database is, dan wordt de database gevalideerd.
+                                Als er geen database is, gooit het systeem een faut-melding.
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="h2">
+        <description>Database config file for JPA Hibernate Context.</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>be.intecbrussel.model.UserEntity</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:school_db" />
+            <property name="jakarta.persistence.jdbc.user" value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+        </properties>
+    </persistence-unit>
+</persistence>
