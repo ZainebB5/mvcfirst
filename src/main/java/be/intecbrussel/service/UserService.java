@@ -11,11 +11,16 @@ public class UserService extends AbstractRepository{
 
     public boolean login(final String email, final String password){
         if( userRepository.existsByEmail(email)){
+
             throw new UserException(" User already exists ");
         }
         if ( ! userRepository.isActiveByEmail(email)){
             throw new UserException("The user with given email is deleted .");
         }
+        // TODO: controleer of de gebruikersnaam en het wachtwoord klopt zijn
+
+
+        // TODO: als alles klopt, geef true terug
         return true;
     }
 
