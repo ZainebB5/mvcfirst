@@ -9,10 +9,12 @@
         <description>Database config file for JPA Hibernate Context.</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>be.intecbrussel.model.UserEntity</class>
+        <class>be.intecbrussel.model.RoleEntity</class>
+        <class>be.intecbrussel.model.MessageEntity</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/school_db" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/message_db" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
             <property name="jakarta.persistence.jdbc.password" value="javaM@rs22" />
             <!-- Drukt alle SQL transacties uit scherm/console. -->
@@ -35,10 +37,12 @@
         <description>Database config file for JPA Hibernate Context.</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>be.intecbrussel.model.UserEntity</class>
+        <class>be.intecbrussel.model.RoleEntity</class>
+        <class>be.intecbrussel.model.MessageEntity</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:school_db" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:message_db" />
             <property name="jakarta.persistence.jdbc.user" value="sa" />
             <property name="jakarta.persistence.jdbc.password" value="" />
             <property name="hibernate.show_sql" value="true" />

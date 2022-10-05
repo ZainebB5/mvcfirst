@@ -4,17 +4,15 @@ package be.intecbrussel.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
-@With
-@Data
-
 @Entity
 
 public class UserEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +29,7 @@ public class UserEntity {
     @Column(name = "l_name")
     private String lName;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true , length = 1000)
     private String email;
 
     @Column(name = "hashed_password", nullable = false, length = 1000)
@@ -55,5 +53,18 @@ public class UserEntity {
                 ", validation='" + validation + '\'' +
                 ", active=" + active +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserEntity that = (UserEntity) o;
+        return Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
     }
 }

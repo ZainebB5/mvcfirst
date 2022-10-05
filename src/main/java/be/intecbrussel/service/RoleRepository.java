@@ -1,18 +1,19 @@
 package be.intecbrussel.service;
 
-import be.intecbrussel.model.MessageEntity;
+import be.intecbrussel.model.RoleEntity;
 import be.intecbrussel.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 
-public class MessageRepository {
+public class RoleRepository {
 
-    /*public void save(MessageEntity messageEntity){
+
+   /* public void save(RoleEntity role){
         EntityTransaction transaction = manager.getTransaction();
         transaction.begin();
-        manager.persist(messageEntity);
+        manager.persist(role);
         transaction.commit();
-    }
-*/
+    }*/
+
 }
