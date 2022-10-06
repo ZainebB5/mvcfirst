@@ -10,6 +10,9 @@ public class UserService extends AbstractRepository{
     private final UserRepository userRepository = new UserRepository();
 
     public boolean login(final String email, final String password){
+        if(email == null || password == null){
+            throw new UserException("Email and password are required ! ");
+        }
         if( userRepository.existsByEmail(email)){
 
             throw new UserException(" User already exists ");
@@ -65,7 +68,7 @@ public class UserService extends AbstractRepository{
         }
 
         // TODO: als de gebruiker niet bestaat, maak een nieuwe gebruiker aan
-        final EntityManager em = super.getEntitYManager();
+        final EntityManager em = super.getFactory().createEntityManager();
         em.getTransaction().begin();
         UserEntity user = new UserEntity ( );
 

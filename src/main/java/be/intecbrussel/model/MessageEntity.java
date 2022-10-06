@@ -18,6 +18,7 @@ import java.util.Set;
 @Entity
 public class MessageEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -47,4 +48,16 @@ public class MessageEntity {
     @Column(name = "active", nullable = false)
     private Boolean active = false;
 
+    @Override
+    public String toString() {
+        return "MessageEntity{" +
+                "id=" + id +
+                ", sender=" + sender +
+                ", subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                ", viewsCount=" + viewsCount +
+                ", likesCount=" + likesCount +
+                ", active=" + active +
+                '}';
+    }
 }

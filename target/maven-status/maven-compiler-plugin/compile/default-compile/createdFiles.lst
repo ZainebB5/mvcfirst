@@ -1,3 +1,14 @@
-be\intecbrussel\model\MessageEntity$MessageEntityBuilder.class
 be\intecbrussel\model\MessageEntity.class
+be\intecbrussel\service\MessageException.class
+be\intecbrussel\service\AbstractRepository.class
+be\intecbrussel\service\RoleRepository.class
 be\intecbrussel\model\RoleEntity.class
+be\intecbrussel\service\UserService.class
+be\intecbrussel\service\RoleException.class
+be\intecbrussel\view\App.class
+be\intecbrussel\service\UserRepository.class
+be\intecbrussel\service\MessageRepository.class
+be\intecbrussel\util\JPAUtil.class
+be\intecbrussel\model\MessageEntity$MessageEntityBuilder.class
+be\intecbrussel\model\UserEntity.class
+be\intecbrussel\service\UserException.class

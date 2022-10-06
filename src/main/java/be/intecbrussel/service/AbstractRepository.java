@@ -9,9 +9,10 @@ public abstract class AbstractRepository {
     private final EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
     private final EntityManager manager = factory.createEntityManager();
 
-    public EntityManager getEntitYManager(){
-        return manager;
+    public EntityManagerFactory getFactory() {
+        return factory;
     }
+
 
     public void close(){
         factory.close();

@@ -1,10 +1,13 @@
 package be.intecbrussel.view;
 
+import be.intecbrussel.model.MessageEntity;
 import be.intecbrussel.model.UserEntity;
 
 import be.intecbrussel.service.MessageRepository;
 import be.intecbrussel.service.UserRepository;
 import be.intecbrussel.service.UserService;
+
+import java.util.List;
 
 import static java.lang.System.out;
 
@@ -44,12 +47,35 @@ public class App
         userRepository.create ( u1 );
         userRepository.create ( u2 );
         userRepository.create ( u3);
+
+        MessageEntity m1 = new MessageEntity();
+        m1.setSender(u1);
+        m1.setSubject("test");
+        m1.setContent("intectest");
+        m1.setActive(true);
+        m1.setLikesCount(3);
+        m1.setViewsCount(4);
+        messageRepository.create(m1);
         out.println("##".repeat(30));
-        out.println(userRepository.existsByEmail("Kawthar@gmail.be"));
+
+        out.println(messageRepository.findById(1L));;
+
         out.println("##".repeat(30));
-        out.println(userRepository.isActiveByEmail("Sakina@gmail.be"));
+        List<UserEntity> users = userRepository.findAll();
+        for(UserEntity u : users){
+            out.println(u.getEmail());
+        }
         out.println("##".repeat(30));
-        out.println(userService.login("KawtharGGG@gmail.be","A1b23456"));
+        out.println("Exixt by email : " + userRepository.existsByEmail("Kawthar@gmail.be"));
+        out.println("##".repeat(30));
+        out.println("Active by email : " + userRepository.isActiveByEmail("Sakina@gmail.be"));
+        out.println("##".repeat(30));
+        //out.println(userService.login("KawtharGGG@gmail.be","A1b23456"));
+
+        UserService userService = new UserService();
+        userService.login("Kawthar555@gmail.be", "A1b23456");
+
+
 
 
 
