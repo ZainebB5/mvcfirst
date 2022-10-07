@@ -55,5 +55,16 @@ public class UserEntity {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserEntity user = (UserEntity) o;
+        return Objects.equals(email, user.email) && Objects.equals(hashedPassword, user.hashedPassword);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, hashedPassword);
+    }
 }

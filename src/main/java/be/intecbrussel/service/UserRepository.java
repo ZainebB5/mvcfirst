@@ -133,7 +133,8 @@ public class UserRepository extends AbstractRepository{
         final EntityManager em = super.getFactory().createEntityManager();
         Query query = em.createQuery ( "SELECT u FROM UserEntity u WHERE u.email LIKE :email " );
         query.setParameter("email", email);
-        if (query.getResultList().size() != 1){
+        if (query.getResultList().size() == 0){
+            //if (! query.getResultList().equals(email)){
             throw new UserException("the email doesn't exist");
         }
 
@@ -147,7 +148,7 @@ public class UserRepository extends AbstractRepository{
         final EntityManager em = super.getFactory().createEntityManager();
         Query query = em.createQuery ( "SELECT u FROM UserEntity u WHERE u.email LIKE :email AND u.active = true " );
         query.setParameter("email", email);
-        if (query.getResultList().size() != 1){
+        if (query.getResultList().size() == 0){
             throw new UserException("the email isn't actif");
         }
 

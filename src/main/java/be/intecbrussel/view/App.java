@@ -44,6 +44,22 @@ public class App
         u3.setValidation ( "12345678" );
         u3.setActive ( false );
 
+        UserEntity u4 = new UserEntity ( );
+        u3.setFName ( "Zahra" );
+        u3.setLName ( "Bak" );
+        u3.setEmail ( "Kawthar@gmail.be" );
+        u3.setHashedPassword ( "A1b23456" );
+        u3.setValidation ( "12345678" );
+        u3.setActive ( true );
+
+        UserEntity u5 = new UserEntity ( );
+        u3.setFName ( "Hassan" );
+        u3.setLName ( "Bak" );
+        u3.setEmail ( "Hassan@gmail.be" );
+        u3.setHashedPassword ( "A1b23456" );
+        u3.setValidation ( "12345678" );
+        u3.setActive ( true );
+
         userRepository.create ( u1 );
         userRepository.create ( u2 );
         userRepository.create ( u3);
@@ -58,7 +74,7 @@ public class App
         messageRepository.create(m1);
         out.println("##".repeat(30));
 
-        out.println(messageRepository.findById(1L));;
+        out.println(messageRepository.findById(null));;
 
         out.println("##".repeat(30));
         List<UserEntity> users = userRepository.findAll();
@@ -66,14 +82,12 @@ public class App
             out.println(u.getEmail());
         }
         out.println("##".repeat(30));
-        out.println("Exixt by email : " + userRepository.existsByEmail("Kawthar@gmail.be"));
+        out.println("Exist by email : " + userRepository.existsByEmail("Kawthar@gmail.be"));
         out.println("##".repeat(30));
         out.println("Active by email : " + userRepository.isActiveByEmail("Sakina@gmail.be"));
         out.println("##".repeat(30));
-        //out.println(userService.login("KawtharGGG@gmail.be","A1b23456"));
-
         UserService userService = new UserService();
-        userService.login("Kawthar555@gmail.be", "A1b23456");
+        userService.login("Kawthar@gmail.be", "A1b23456");
 
 
 
